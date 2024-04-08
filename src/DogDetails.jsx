@@ -1,4 +1,4 @@
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 
 /** Info on individual dog (includes, name, age, photo and facts).
@@ -8,8 +8,13 @@ import { v4 as uuid } from "uuid";
  *
  * App -> DogDetails
 */
-function DogDetails({ dogData }) {
+function DogDetails({ dogData, updateCurrDog }) {
     // const { name } = useParams();
+
+    if(dogData === null) {
+      const { name } = useParams();
+      updateCurrDog(name);
+    }
 
     // const dogData = dogs.filter(d => d.name === name)[0];
 

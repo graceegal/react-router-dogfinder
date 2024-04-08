@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { useState } from "react";
 import DogList from "./DogList";
 import DogDetails from "./DogDetails";
@@ -32,6 +32,9 @@ function App() {
 
   function updateCurrDog(name) {
     const dog = dogData.filter(d => d.name === name)[0];
+    if (!dog) {
+      return <Navigate to="/dogs" />
+    }
     setCurrDog(dog);
   }
 
@@ -43,7 +46,7 @@ function App() {
           <NavBar dogs={dogData} updateCurrDog={updateCurrDog} />
           <Routes>
             <Route path="/dogs" element={<DogList dogs={dogData} updateCurrDog={updateCurrDog} />} />
-            <Route path="/dogs/:name" element={<DogDetails dogData={currDog} />} />
+            <Route path="/dogs/:name" element={<DogDetails dogData={currDog} updateCurrDog={updateCurrDog}/>} />
           </Routes>
         </BrowserRouter>
         : <h3 className="App-loading" >Loading...</h3>}
