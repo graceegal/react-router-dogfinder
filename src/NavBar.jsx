@@ -6,7 +6,7 @@ function NavBar({ dogs }) {
       <nav className="Nav-Link">
         <NavLink to="/dogs">All Dogs</NavLink>
         {dogs.map(dog =>
-            <NavLink to={`/dogs/${dog.name}`}>{dog.name}</NavLink>
+            <NavLink key={dog.name} to={`/dogs/${dog.name}`}>{dog.name}</NavLink>
         )}
       </nav>
     );

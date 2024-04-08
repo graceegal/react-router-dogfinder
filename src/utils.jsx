@@ -6,10 +6,10 @@ async function getDogData() {
     return data;
 }
 
-async function getSpecificDogData(dogName) {
-    const data = await getDogData();
-    const dogData = data.filter(d => d.name === dogName);
-    return dogData[0];
-}
+// async function getSpecificDogData(dogName) {
+//     const data = await getDogData();
+//     const dogData = data.filter(d => d.name === dogName);
+//     return dogData[0];
+// }
 
-export { getDogData, getSpecificDogData };
+export { getDogData };

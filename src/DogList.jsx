@@ -1,20 +1,15 @@
 import { useState } from "react";
 import { getDogData } from "./utils";
+import DogLink from "./DogLink";
 
-function DogList() {
-    const [dataLoaded, setDataLoaded] = useState(false);
-
-    const dogData = await getDogData();
+function DogList({ dogs }) {
 
     return (
         <div className="DogList">
-            {dataLoaded
-                ?
-                    <div>
-                        <h1>Dogs</h1>
-                        {dogData.map(dog => (<DogLink className={`DogList-${dog}`} dog={dog} />))}
-                    </ div>
-                : <h3 className="DogList-loading">Loading...</h3>}
+            <h1>Dogs</h1>
+            {dogs.map(dog => (<DogLink key={dog.name} className={`DogList-${dog}`} dog={dog} />))}
         </div>
     );
 }
+
+export default DogList;
