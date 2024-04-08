@@ -1,0 +1,9 @@
+.Nav-Link a.active {
+  text-decoration: none;
+  font-weight: bold;
+  color: #000000;
+}
+
+.Nav-Link {
+  margin-right: 10px;
+}
